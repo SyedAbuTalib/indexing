@@ -65,7 +65,7 @@ class CoreApiRequestor:
 endpoint = 'https://core.ac.uk/api-v2'
 api_key = '5TphODMbCjoQUkWitNZSBVqsEeYlHfnI'
 method = '/articles/search'
-topic = 'deep learning'
+topic = '*'
 
 api = CoreApiRequestor(endpoint, api_key)
 result = api.get_up_to_20_pages_of_query(method, topic, False)
@@ -78,7 +78,7 @@ def clean(result):
             try:
                 obj = {}
                 k = ['authors', 'title', 'description',
-                     'datePublished', 'fulltextUrls', 'journal']
+                     'datePublished', 'fulltextUrls', 'journal', 'doi']
                 for i in k:
                     if i in a:
                         obj[i] = a[i]
